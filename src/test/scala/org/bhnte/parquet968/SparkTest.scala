@@ -49,7 +49,11 @@ class SparkTest extends FunSuite with Matchers with BeforeAndAfterAll {
       .addNonEmptyRepeated(1).addNonEmptyRepeated(1)
       .putNonEmptyMap(1, 1).putNonEmptyMap(2, 2)
       .build()
-    val path = new WriteUsingMR().write(msg)
+
+    val conf = new Configuration()
+    ProtoWriteSupport.setWriteSpecsCompliant(conf, true)
+
+    val path = new WriteUsingMR(conf).write(msg)
 
     val expectedRows =
       s"""+-------------+----------------+--------+----------------+
@@ -70,10 +74,7 @@ class SparkTest extends FunSuite with Matchers with BeforeAndAfterAll {
       .putNonEmptyMap(1, 1).putNonEmptyMap(2, 2)
       .build()
 
-    val conf = new Configuration()
-    ProtoWriteSupport.setWriteUsingOldSchemas(conf, true)
-
-    val path = new WriteUsingMR(conf).write(msg)
+    val path = new WriteUsingMR().write(msg)
 
     val expectedRows =
       s"""+-------------+----------------+--------+----------------+
@@ -94,7 +95,11 @@ class SparkTest extends FunSuite with Matchers with BeforeAndAfterAll {
       .addNonEmptyRepeated(1).addNonEmptyRepeated(1)
       .putNonEmptyMap(1, 1).putNonEmptyMap(2, 2)
       .build()
-    val path = new WriteUsingMR().write(msg)
+
+    val conf = new Configuration()
+    ProtoWriteSupport.setWriteSpecsCompliant(conf, true)
+
+    val path = new WriteUsingMR(conf).write(msg)
 
     val expectedRows =
       s"""+-------------+----------------+--------+----------------+
@@ -115,10 +120,7 @@ class SparkTest extends FunSuite with Matchers with BeforeAndAfterAll {
       .putNonEmptyMap(1, 1).putNonEmptyMap(2, 2)
       .build()
 
-    val conf = new Configuration()
-    ProtoWriteSupport.setWriteUsingOldSchemas(conf, true)
-
-    val path = new WriteUsingMR(conf).write(msg)
+    val path = new WriteUsingMR().write(msg)
 
     val expectedRows =
       s"""+-------------+----------------+--------+----------------+
