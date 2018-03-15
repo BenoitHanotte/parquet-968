@@ -1,0 +1,8 @@
+*.iml
+.idea/
+target/
+**/target/
+*.bin
+bin/
+*.exe
+spark-warehouse/

@@ -1,0 +1,11 @@
+syntax = "proto3";
+package TestProto3;
+
+option java_package = "org.bhnte.test";
+
+message Test3 {
+    repeated int32 emptyRepeated = 1;
+    repeated int32 nonEmptyRepeated = 2;
+    map<int32, int32> emptyMap = 3;
+    map<int32, int32> nonEmptyMap = 4;
+}
