@@ -4,8 +4,10 @@ package TestProto2;
 option java_package = "org.bhnte.test";
 
 message Test2 {
-    repeated int32 emptyRepeated = 1;
-    repeated int32 nonEmptyRepeated = 2;
-    map<int32, int32> emptyMap = 3;
-    map<int32, int32> nonEmptyMap = 4;
+    optional int32 intNotSet = 1;
+    optional int32 intSet = 2;
+    repeated int32 emptyRepeated = 3;
+    repeated int32 nonEmptyRepeated = 4;
+    map<int32, int32> emptyMap = 5;
+    map<int32, int32> nonEmptyMap = 6;
 }
